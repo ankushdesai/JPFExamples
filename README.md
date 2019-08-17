@@ -8,3 +8,7 @@ This is a repo of examples using jpf. The jpf-core is added as submodule.
 See more about git submodule [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 - To build, `jpf-core`, see instructions [here](https://github.com/javapathfinder/jpf-core/wiki/How-to-install-JPF).
+
+
+
+To run each test, add the corresponding class path `jpf-core.classpath` inside `jpf.properties` . For example, to run `ConcurrentListTest`, add `../ConcurrentList/build/test`, and inside `ConcurrentList` folder, do `ant test`. 

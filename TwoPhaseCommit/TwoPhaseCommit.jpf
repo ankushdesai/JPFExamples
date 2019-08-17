@@ -1,0 +1,4 @@
+report.console.property_violation=error
+target=TwoPhaseCommit
+classpath=.
+cg.enumerate_random=true
