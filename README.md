@@ -4,6 +4,9 @@ This is a repo of examples using jpf. The jpf-core is added as submodule.
   - `git submodule init`
   - `git submodule update`
 - Or, when doing a clone, simply do `git clone --recurse-submodules https://github.com/chaconinc/MainProject`
+- To pull newest changes in the submodule, inside `jpf-core` folder, do:
+  - `git fetch`
+  - `git merge origin/master`
 
 See more about git submodule [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
