@@ -1,0 +1,6 @@
+report.console.property_violation=error
+target=ConcurrentList
+classpath=./build/main
+cg.enumerate_random=true
+cg.randomize_choices=FIXED_SEED
+report.console.show_code=true
