@@ -1,11 +1,9 @@
-<project name="ConcurrentListTest">
+<project name="ConcurrentListTest" basedir = ".">
+
     <property name="main.build.dir" value="build/main"/>
     <property name="main.src.dir" value="src/main/java"/>
     <property name="test.build.dir" value="build/test"/>
     <property name="test.src.dir" value="src/test/java"/>
-    <property file="${user.home}/.jpf/site.properties"/>
-    <property file="../jpf-core/jpf.properties"/>
-
 
     <path id="classpath.test">
         <pathelement location="/Users/nyfkxj/ucb_archive/p_org/jpf/apache-ant-1.10.6/lib/junit-4.12.jar"/>
@@ -25,12 +23,27 @@
         <mkdir dir="${test.build.dir}"/>
         <javac srcdir="${test.src.dir}" destdir="${test.build.dir}"
                includeantruntime="false">
-            <classpath refid="classpath.test"/>
-
+            <compilerarg value="-cp"/>
+            <compilerarg path="build/main/:../jpf-core/build/RunTest.jar:../jpf-core/build/jpf.jar"/>
         </javac>
     </target>
 
-    <target name="test" depends="test-compile">
+
+
+    <target name="test" depends="compile">
+        <java dir="."
+            jar="../jpf-core/build/RunJPF.jar"
+            fork="true"
+            failonerror="true"
+            maxmemory="1024m">
+            <arg value="-log"/>
+            <!-- <arg value="-show"/> -->
+            <arg value="ConcurrentList.jpf"/>
+
+        </java>
+    </target>
+
+    <target name="junit-test" depends="test-compile">
         <junit printsummary="on" showoutput="on" haltonfailure="yes"
                fork="yes" forkmode="perTest" maxmemory="1024m">
             <classpath refid="classpath.test"/>
@@ -39,4 +52,10 @@
             </batchtest>
         </junit>
     </target>
+
+    <target name="clean" description="clean up">
+        <delete dir="${main.build.dir}"/>
+        <delete dir="${test.build.dir}"/>
+    </target>
+
 </project>
