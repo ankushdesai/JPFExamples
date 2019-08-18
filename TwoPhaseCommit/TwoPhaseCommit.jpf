@@ -1,4 +1,4 @@
 report.console.property_violation=error
 target=TwoPhaseCommit
-classpath=.
+classpath=./build/main
 cg.enumerate_random=true
