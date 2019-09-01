@@ -1,0 +1,5 @@
+target=FileOperation
+classpath=./build/main
+report.console.show_code=true
+# @using = jpf-nhandler
+# nhandler.delegateUnhandledNative = true
