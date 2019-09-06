@@ -17,25 +17,27 @@ public class FileOperation {
         // Verify the methods read and write used by the FileChannel of a
         // FileInput/OutputStream
         StringBuilder sb = new StringBuilder();
-        // BufferedReader br = null;
-        // try {
+        BufferedReader br = null;
+        try {
 
-        // URL url = new URL("https://www.google.com");
-        // br = new BufferedReader(new InputStreamReader(url.openStream()));
+            URL url = new URL("https://www.google.com");
+            br = new BufferedReader(new InputStreamReader(url.openStream()));
 
-        // String line;
-        // while ((line = br.readLine()) != null) {
+            String line;
+            while ((line = br.readLine()) != null) {
 
-        // sb.append(line);
-        // sb.append(System.lineSeparator());
-        // }
+                sb.append(line);
+                sb.append(System.lineSeparator());
+            }
 
-        // } finally {
-
-        // if (br != null) {
-        // br.close();
-        // }
-        // }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return;
+        } finally {
+            if (br != null) {
+                br.close();
+            }
+        }
         sb.append("Just for testing");
 
         BufferedWriter bw = null;
@@ -52,7 +54,6 @@ public class FileOperation {
         } finally {
             if (bw != null) {
                 // close the stream
-
                 bw.close();
             }
         }

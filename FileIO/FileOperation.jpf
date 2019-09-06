@@ -1,5 +1,9 @@
+@using = jpf-nhandler
+nhandler.delegateUnhandledNative = true
+nhandler.spec.skip= java.net.URL.*, java.io.BufferedReader.*
+
 target=FileOperation
 classpath=./build/main
 report.console.show_code=true
-# @using = jpf-nhandler
-# nhandler.delegateUnhandledNative = true
+report.console.property_violation=error,snapshot
+
