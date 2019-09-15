@@ -1,1 +1,1 @@
-To run each test, add the corresponding class path `jpf-core.classpath` inside `jpf.properties` . For example, to run `ConcurrentListTest`, add `../ConcurrentList/build/test`, and inside `ConcurrentList` folder, do `ant test`. 
+- To invoke jpf on each example file, simply do `ant test`. 

@@ -1,0 +1,4 @@
+report.console.property_violation=error
+target=ConcurrentList
+classpath=build/main
+report.console.show_code=true

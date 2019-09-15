@@ -1,4 +1,4 @@
-<project name="ConcurrentListTest" basedir = ".">
+<project name="JPFExamples" basedir = ".">
 
     <property name="main.build.dir" value="build/main"/>
     <property name="main.src.dir" value="src/main/java"/>
@@ -6,8 +6,8 @@
     <property name="test.src.dir" value="src/test/java"/>
 
     <path id="classpath.test">
-        <pathelement location="/Users/nyfkxj/ucb_archive/p_org/jpf/apache-ant-1.10.6/lib/junit-4.12.jar"/>
-        <pathelement location="/Users/nyfkxj/ucb_archive/p_org/jpf/apache-ant-1.10.6/lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="/usr/local/apache-ant-1.9.14/lib/junit-4.13-beta-3.jar"/>
+        <pathelement location="//usr/local/apache-ant-1.9.14/lib/hamcrest-core-1.3.jar"/>
         <pathelement location="../jpf-core/build/RunTest.jar"/>
         <pathelement location="../jpf-core/build/jpf.jar"/>
         <pathelement location="${main.build.dir}"/>
@@ -31,25 +31,27 @@
 
 
     <target name="test" depends="compile">
-        <java dir="."
-            jar="../jpf-core/build/RunJPF.jar"
-            fork="true"
-            failonerror="true"
-            maxmemory="1024m">
-            <arg value="-log"/>
-            <!-- <arg value="-show"/> -->
-            <arg value="ConcurrentList.jpf"/>
-
-        </java>
+        <apply executable="java"> 
+            <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
+            <fileset dir="${main.src.dir}" includes="*.jpf"/> 
+        </apply> 
     </target>
 
     <target name="junit-test" depends="test-compile">
         <junit printsummary="on" showoutput="on" haltonfailure="yes"
                fork="yes" forkmode="perTest" maxmemory="1024m">
-            <classpath refid="classpath.test"/>
-            <batchtest>
-                <fileset dir="${test.build.dir}" includes="ConcurrentListTest.class"/>
+
+            <classpath>
+                <path refid="classpath.test"/>
+
+            </classpath>
+
+            <batchtest todir="${test.build.dir}">
+                <fileset dir="${test.build.dir}">
+                <include name="**/*Test.class"/>
+                </fileset>
             </batchtest>
+
         </junit>
     </target>
 
