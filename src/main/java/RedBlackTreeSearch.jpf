@@ -1,0 +1,3 @@
+report.console.property_violation=error
+target=RedBlackTreeSearch
+classpath=build/main

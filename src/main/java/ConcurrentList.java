@@ -183,8 +183,8 @@ public class ConcurrentList<Item> {
         
         @Override
         public void run() {
-            myList.removeFirstUnsafe();
-            //myList.removeFirst();
+           // myList.removeFirstUnsafe();
+            myList.removeFirst();
         }
     };
 

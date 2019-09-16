@@ -1,0 +1,4 @@
+report.console.property_violation=error
+classpath=build/main
+target=Dijkstra
+report.console.show_code=true

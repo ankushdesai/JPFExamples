@@ -1,3 +1,4 @@
+// Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/BinaryTreeSearch.java
 
 public class BinarySearchTree {
     /**
@@ -68,7 +69,7 @@ public class BinarySearchTree {
 
 
     public static void main(String args[]) {
-        final int N = 1000;
+        final int N = 10000;
 
         BinarySearchTree b = new BinarySearchTree();
         for (int i = 0; i < N; i++) {
