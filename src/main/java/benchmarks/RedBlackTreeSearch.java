@@ -1,6 +1,6 @@
 
-import rbt.RedBlackTree;
-import rbt.RedBlackTreeNode;
+import benchmarks.rbt.RedBlackTree;
+import benchmarks.rbt.RedBlackTreeNode;
 
 /**
  * Copyright (c) 2011, Regents of the University of California

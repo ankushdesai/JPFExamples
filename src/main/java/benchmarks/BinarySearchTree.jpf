@@ -1,4 +1,4 @@
 report.console.property_violation=error
-classpath=build/main
+classpath=build/main/
 target=BinarySearchTree
 report.console.show_code=true

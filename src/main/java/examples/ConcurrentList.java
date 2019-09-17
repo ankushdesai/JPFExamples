@@ -1,3 +1,5 @@
+package examples;
+
 /*
 * Written by Yifan Ning
 * An example showing how jpf model checks thread-safe operations on 

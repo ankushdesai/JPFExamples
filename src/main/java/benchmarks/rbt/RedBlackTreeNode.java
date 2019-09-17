@@ -1,4 +1,4 @@
-package rbt;
+package benchmarks.rbt;
 /**
  * A <code>RedBlackTreeNode</code> object is a node of a Red-Black
  * tree. It extends the <code>Node</code> class with variables color

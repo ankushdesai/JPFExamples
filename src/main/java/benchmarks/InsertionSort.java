@@ -1,5 +1,8 @@
+
 /**
- * Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/InsertionSort.java
+ * Credit:
+ * https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/InsertionSort.java
+ * 
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
 public class InsertionSort {

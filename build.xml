@@ -7,7 +7,7 @@
 
     <path id="classpath.test">
         <pathelement location="/usr/local/apache-ant-1.9.14/lib/junit-4.13-beta-3.jar"/>
-        <pathelement location="//usr/local/apache-ant-1.9.14/lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="/usr/local/apache-ant-1.9.14/lib/hamcrest-core-1.3.jar"/>
         <pathelement location="../jpf-core/build/RunTest.jar"/>
         <pathelement location="../jpf-core/build/jpf.jar"/>
         <pathelement location="${main.build.dir}"/>
@@ -29,11 +29,18 @@
     </target>
 
 
-
-    <target name="test" depends="compile">
+    <target name="benchmark" depends="compile">
         <apply executable="java"> 
             <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
-            <fileset dir="${main.src.dir}" includes="*.jpf"/> 
+            <fileset dir="${main.src.dir}/benchmarks" includes="*.jpf"/> 
+        </apply> 
+    </target>
+
+
+    <target name="example" depends="compile">
+        <apply executable="java"> 
+            <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
+            <fileset dir="${main.src.dir}/examples" includes="*.jpf"/> 
         </apply> 
     </target>
 

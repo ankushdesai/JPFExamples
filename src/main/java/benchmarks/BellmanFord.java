@@ -53,7 +53,7 @@ public class BellmanFord {
     }
 
     public static void main(String[] args) {
-        final int V = 10000;
+        final int V = 1000;
     	// final int V = 3;
 
         final int D[][] = new int[V][V];

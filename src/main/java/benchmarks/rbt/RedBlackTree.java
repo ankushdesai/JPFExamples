@@ -1,4 +1,4 @@
-package rbt;
+package benchmarks.rbt;
 /**
  * A <code>RedBlackTree</code> object is a Red-Black
  * tree.

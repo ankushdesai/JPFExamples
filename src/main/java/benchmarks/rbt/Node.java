@@ -1,4 +1,4 @@
-package rbt;
+package benchmarks.rbt;
 
 /**
  * 
