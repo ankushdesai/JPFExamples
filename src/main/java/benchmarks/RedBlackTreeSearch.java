@@ -1,6 +1,7 @@
 
 import benchmarks.rbt.RedBlackTree;
 import benchmarks.rbt.RedBlackTreeNode;
+import java.util.Random;
 
 /**
  * Copyright (c) 2011, Regents of the University of California
@@ -38,14 +39,16 @@ import benchmarks.rbt.RedBlackTreeNode;
  */
 
 /**
- * Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/RedBlackTreeSearch.java
+ * Credit:
+ * https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/RedBlackTreeSearch.java
+ * 
  * @author Koushik Sen <ksen@cs.berkeley.edu>
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
 public class RedBlackTreeSearch {
     public static void main(String[] args) {
-        int N = 10000;
-
+        int N = Integer.parseInt(args[0]);
+        Random rand = new Random();
         RedBlackTree tree = new RedBlackTree();
 
         for (int i = 0; i < N; i++) {
@@ -53,9 +56,8 @@ public class RedBlackTreeSearch {
             tree.treeInsert(new RedBlackTreeNode(data));
         }
 
-        // We only measure the complexity (i.e. path length) of the
-        // final search operation.  That is, we count branches only
-        // from this point forward in the execution.
-        //Concolic.ResetBranchCounting();
+        for (int i = 0; i < N; i++) {
+            tree.treeSearch(tree.root(), rand.nextInt(i + 1));
+        }
     }
 }

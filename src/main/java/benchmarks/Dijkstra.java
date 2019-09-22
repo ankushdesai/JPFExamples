@@ -1,7 +1,8 @@
 
-
 /**
- * Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/Dijkstra.java
+ * Credit:
+ * https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/Dijkstra.java
+ * 
  * @author jburnim@cs.berkeley.edu
  */
 public class Dijkstra {
@@ -12,7 +13,7 @@ public class Dijkstra {
         // Initialize distances.
         int dist[] = new int[N];
         boolean fixed[] = new boolean[N];
-        for (int i = 0; i < N; i++) {  // V+1 branches
+        for (int i = 0; i < N; i++) { // V+1 branches
             dist[i] = INFINITY;
             fixed[i] = false;
         }
@@ -39,7 +40,7 @@ public class Dijkstra {
                     dist[i] = dist[min] + D[min][i];
                 }
             }
-            
+
         }
 
         // Return the computed distances.
@@ -47,21 +48,22 @@ public class Dijkstra {
     }
 
     public static void main(String[] args) {
-        final int V = 1000;
+        final int V = Integer.parseInt(args[0]);
 
         final int D[][] = new int[V][V];
 
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
-                if (i ==j) continue;
-                D[i][j] = i+j;//Concolic.input.Integer(0, 1000);
+                if (i == j)
+                    continue;
+                D[i][j] = i + j;// Concolic.input.Integer(0, 1000);
             }
         }
 
         // We only measure the complexity (i.e. path length) of the
-        // graph algorithm itself.  That is, we count branches only
+        // graph algorithm itself. That is, we count branches only
         // from this point forward in the execution.
-       // Concolic.ResetBranchCounting();
+        // Concolic.ResetBranchCounting();
 
         runDijkstra(V, D, 0);
     }

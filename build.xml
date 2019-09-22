@@ -30,10 +30,109 @@
 
 
     <target name="benchmark" depends="compile">
-        <apply executable="java"> 
-            <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
-            <fileset dir="${main.src.dir}/benchmarks" includes="*.jpf"/> 
-        </apply> 
+
+    
+        <echo message="================================================================= Binary Search with 1000 insertions and 1000 search"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+        <echo message="================================================================= Binary Search with 10000 insertions and 10000 search"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/BinarySearchTree.jpf 10000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+        <!-- <echo message="================================================================= Binary Search with 100000 insertions and 100000 search"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/BinarySearchTree.jpf 100000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>         -->
+                
+        <echo message="================================================================= Red Black Tree Search with 1000 insertions and 1000 search"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/RedBlackTreeSearch.jpf 1000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+        <echo message="================================================================= Red Black Tree Search with 10000 insertions and 10000 search"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/RedBlackTreeSearch.jpf 10000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+        <!-- <echo message="================================================================= Red Black Tree Search with 100000 insertions and 100000 search"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/RedBlackTreeSearch.jpf 100000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/> -->
+
+        <echo message="================================================================= Dijkstra with V = 100"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/Dijkstra.jpf 100"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/> 
+
+        <echo message="================================================================= Dijkstra with V = 1000"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/Dijkstra.jpf 1000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/> 
+
+        <!-- <echo message="================================================================= Dijkstra with V = 10000"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="2048m">
+            <arg line="${main.src.dir}/benchmarks/Dijkstra.jpf 10000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>  -->
+
+        <echo message="================================================================= BellmanFord with V = 100"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/BellmanFord.jpf 100"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+
+        <echo message="================================================================= BellmanFord with V = 1000"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/BellmanFord.jpf 1000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+        <!-- <echo message="================================================================= BellmanFord with V = 10000"/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="2048m">
+            <arg line="${main.src.dir}/benchmarks/BellmanFord.jpf 10000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/> -->
+
+
+        <echo message="================================================================= Tsp with N = 10 "/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/Tsp.jpf 10"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+
+        <!-- <echo message="================================================================= Tsp with N = 100 "/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="1024m">
+            <arg line="${main.src.dir}/benchmarks/Tsp.jpf 100"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/> -->
+
+
+        <echo message="================================================================= InsertionSort with N = 1e5 "/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="4096m">
+            <arg line="${main.src.dir}/benchmarks/InsertionSort.jpf 100000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
+
+        <echo message="================================================================= InsertionSort with N = 1e6 "/>
+        <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="4096m">
+            <arg line="${main.src.dir}/benchmarks/InsertionSort.jpf 1000000"/>
+        </java>
+        <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
+
     </target>
 
 

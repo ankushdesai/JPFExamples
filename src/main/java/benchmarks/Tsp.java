@@ -33,7 +33,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 //package edu.berkeley.cs.wise.benchmarks;
 
 //import edu.berkeley.cs.wise.concolic.Concolic;
@@ -67,7 +66,7 @@ public class Tsp {
                 visited[i] = false;
 
             visited[0] = true;
-            search(0, 0, N-1);
+            search(0, 0, N - 1);
 
             return best;
         }
@@ -89,7 +88,8 @@ public class Tsp {
                 return;
 
             for (int i = 0; i < N; i++) {
-                if (visited[i]) continue;
+                if (visited[i])
+                    continue;
 
                 visited[i] = true;
                 search(i, length + D[src][i], nLeft - 1);
@@ -99,22 +99,22 @@ public class Tsp {
     }
 
     public static void main(String args[]) {
-        final int N = 100;
+        final int N = Integer.parseInt(args[0]);
 
         int D[][] = new int[N][N];
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                D[i][j] = i+j;//Concolic.input.Integer(0, 1000);
+                D[i][j] = i + j;// Concolic.input.Integer(0, 1000);
             }
         }
 
         TspSolver tspSolver = new TspSolver(N, D);
 
         // We only measure the complexity (i.e. path length) of the
-        // Tsp solving.  That is, we count branches only from this
+        // Tsp solving. That is, we count branches only from this
         // point forward in the execution.
-        //Concolic.ResetBranchCounting();
+        // Concolic.ResetBranchCounting();
 
         tspSolver.solve();
     }

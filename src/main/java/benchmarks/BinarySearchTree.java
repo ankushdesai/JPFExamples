@@ -1,5 +1,6 @@
 
 // Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/BinaryTreeSearch.java
+import java.util.Random;
 
 public class BinarySearchTree {
     /**
@@ -56,10 +57,10 @@ public class BinarySearchTree {
      */
     public boolean search(int v) {
         Node curr = root;
-        while (curr != null) {  // N branches
-            if (curr.value == v) {  // N-1 branches
+        while (curr != null) { // N branches
+            if (curr.value == v) { // N-1 branches
                 return true;
-            } else if (curr.value < v) {  // N-1 branches
+            } else if (curr.value < v) { // N-1 branches
                 curr = curr.right;
             } else {
                 curr = curr.left;
@@ -68,15 +69,16 @@ public class BinarySearchTree {
         return false;
     }
 
-
     public static void main(String args[]) {
-        final int N = 10000;
-
+        final int N = Integer.parseInt(args[0]);
+        Random rand = new Random();
         BinarySearchTree b = new BinarySearchTree();
         for (int i = 0; i < N; i++) {
             b.insert(i);
         }
+
+        for (int i = 0; i < N; i++) {
+            b.search(rand.nextInt(i + 1));
+        }
     }
 }
-
-
