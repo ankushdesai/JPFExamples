@@ -1,1 +1,1 @@
-- To invoke jpf on each example file, simply do `ant test`. 
+- To invoke benchmarking, simply do `ant benchmark`. 
