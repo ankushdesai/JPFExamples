@@ -1,4 +1,4 @@
 report.console.property_violation=error
 target=RedBlackTreeSearch
-search.class = .search.heuristic.BFSHeuristic
+# search.class = .search.heuristic.BFSHeuristic
 classpath=build/main
