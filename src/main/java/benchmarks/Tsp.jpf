@@ -1,3 +1,4 @@
 report.console.property_violation=error
 target=Tsp
+search.class = .search.heuristic.BFSHeuristic
 classpath=build/main/

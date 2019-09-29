@@ -1,4 +1,5 @@
 report.console.property_violation=error
 classpath=build/main
 target=Dijkstra
+search.class = .search.heuristic.BFSHeuristic
 report.console.show_code=true

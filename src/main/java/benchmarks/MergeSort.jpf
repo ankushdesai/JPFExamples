@@ -1,5 +1,5 @@
 report.console.property_violation=error
 classpath=build/main
-target=InsertionSort
-search.class = .search.heuristic.BFSHeuristic
+target=MergeSort
+#search.class = .search.heuristic.BFSHeuristic
 report.console.show_code=true
