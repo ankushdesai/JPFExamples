@@ -34,7 +34,7 @@
 
         <echo message="================================================================= Binary Search with 1000 insertions and 1000 search"/>
         <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="4096m">
-            <arg line="${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
+            <arg line=" ${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
             <redirector output="reports/benchmark.txt" alwayslog="true" append = "true"/> 
         </java>
         <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
@@ -134,7 +134,7 @@
             <redirector output="reports/benchmark.txt" alwayslog="true" append = "true"/> 
         </java>
         <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
-
+    </target>
 
     <target name="example" depends="compile">
         <apply executable="java"> 
