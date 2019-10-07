@@ -1,6 +1,6 @@
 
-import benchmarks.rbt.RedBlackTree;
-import benchmarks.rbt.RedBlackTreeNode;
+import rbt.RedBlackTree;
+import rbt.RedBlackTreeNode;
 import java.util.Random;
 
 /**

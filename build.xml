@@ -19,12 +19,58 @@
         <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false"/>
     </target>
 
-    <target name="benchmark" depends="compile">
+    <target name="test-compile" depends="compile">
+        <mkdir dir="${test.build.dir}"/>
+        <javac srcdir="${test.src.dir}" destdir="${test.build.dir}"
+               includeantruntime="false">
+            <compilerarg value="-cp"/>
+            <compilerarg path="build/main/:../jpf-core/build/RunTest.jar:../jpf-core/build/jpf.jar"/>
+        </javac>
+    </target>
+
+    <target name="clean" description="clean up">
+        <delete dir="${main.build.dir}"/>
+        <delete dir="${test.build.dir}"/>
+    </target>
+
+
+<!-- ****************** Starting examples ************************* -->
+    <target name="example" depends="compile">     
+        <apply executable="java"> 
+            <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
+            <fileset dir="${main.src.dir}/examples" includes="*.jpf"/> 
+        </apply> 
+
+    </target>
+
+
+<!-- ****************** Starting junit tests ************************* -->
+    <target name="junit-test" depends="test-compile">
+        <junit printsummary="on" showoutput="on" haltonfailure="yes"
+               fork="yes" forkmode="perTest" maxmemory="1024m">
+
+            <classpath>
+                <path refid="classpath.test"/>
+
+            </classpath>
+
+            <batchtest todir="${test.build.dir}">
+                <fileset dir="${test.build.dir}">
+                <include name="**/*Test.class"/>
+                </fileset>
+            </batchtest>
+
+        </junit>
+    </target>
+
+<!-- ****************** Starting benchmarks ************************* -->
+
+ <target name="benchmark" depends="compile">
         <delete file="reports/benchmark.txt"/>
 
         <echo message="================================================================= Binary Search with 1000 insertions and 1000 search"/>
         <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="4096m">
-            <arg line=" -show ${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
+            <arg line="${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
             <redirector output="reports/benchmark.txt" alwayslog="true" append = "true"/> 
         </java>
         <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
@@ -126,44 +172,6 @@
         <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
     </target>
 
-    <target name="example" depends="compile">
-        <apply executable="java"> 
-            <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
-            <fileset dir="${main.src.dir}/examples" includes="*.jpf"/> 
-        </apply> 
-    </target>
 
-<!-- ****************** Starting junit tests ************************* -->
-    <target name="test-compile" depends="compile">
-        <mkdir dir="${test.build.dir}"/>
-        <javac srcdir="${test.src.dir}" destdir="${test.build.dir}"
-               includeantruntime="false">
-            <compilerarg value="-cp"/>
-            <compilerarg path="build/main/:../jpf-core/build/RunTest.jar:../jpf-core/build/jpf.jar"/>
-        </javac>
-    </target>
-
-    <target name="junit-test" depends="test-compile">
-        <junit printsummary="on" showoutput="on" haltonfailure="yes"
-               fork="yes" forkmode="perTest" maxmemory="1024m">
-
-            <classpath>
-                <path refid="classpath.test"/>
-
-            </classpath>
-
-            <batchtest todir="${test.build.dir}">
-                <fileset dir="${test.build.dir}">
-                <include name="**/*Test.class"/>
-                </fileset>
-            </batchtest>
-
-        </junit>
-    </target>
-
-    <target name="clean" description="clean up">
-        <delete dir="${main.build.dir}"/>
-        <delete dir="${test.build.dir}"/>
-    </target>
 
 </project>

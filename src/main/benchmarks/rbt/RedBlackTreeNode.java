@@ -1,18 +1,20 @@
-package benchmarks.rbt;
+package rbt;
+
 /**
- * A <code>RedBlackTreeNode</code> object is a node of a Red-Black
- * tree. It extends the <code>Node</code> class with variables color
- * parent, left child and right child.
+ * A <code>RedBlackTreeNode</code> object is a node of a Red-Black tree. It
+ * extends the <code>Node</code> class with variables color parent, left child
+ * and right child.
  * <p/>
  *
- * Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/rbt/RedBlackTreeNode.java
+ * Credit:
+ * https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/rbt/RedBlackTreeNode.java
+ * 
  * @author Tuomo Saarni
  * @version 1.1, 08/16/01
  */
 
 public class RedBlackTreeNode extends Node {
     /* Variables */
-
 
     /**
      * The color node of current node.
@@ -40,7 +42,6 @@ public class RedBlackTreeNode extends Node {
      */
     protected RedBlackTreeNode left;
 
-
     /**
      * The right child node of current node.
      *
@@ -52,29 +53,29 @@ public class RedBlackTreeNode extends Node {
     /* Constructors */
 
     /**
-     * Constructs a new node. The satellite data, color, parent, left child and right child
-     * are set to <code>null>/code>.
+     * Constructs a new node. The satellite data, color, parent, left child and
+     * right child are set to <code>null>/code>.
      *
      * @param _key The key of the node.
      */
     public RedBlackTreeNode(int _key) {
         super(_key);
-        color = null;    // black = null, red = "r". Non-key leaves are nulls!!!
+        color = null; // black = null, red = "r". Non-key leaves are nulls!!!
         p = null;
         left = null;
         right = null;
     }
 
     /**
-     * Constructs a new node. The parent, color, left child and right child
-     * are set to <code>null>/code>.
+     * Constructs a new node. The parent, color, left child and right child are set
+     * to <code>null>/code>.
      *
      * @param _key The key of the node.
      * @param dat  The satellite data of the node.
      */
     public RedBlackTreeNode(int _key, Object dat) {
         super(_key, dat);
-        color = null;    // black = null, red = "r". Non-key leaves are nulls!!!
+        color = null; // black = null, red = "r". Non-key leaves are nulls!!!
         p = null;
         left = null;
         right = null;
@@ -133,7 +134,6 @@ public class RedBlackTreeNode extends Node {
     public String toString() {
         return new String("Key: " + this.key + ", color: " + this.color + ", parent: " + p);
     }
-
 
     /**
      * Sets the key of the node to _key.
@@ -207,8 +207,7 @@ public class RedBlackTreeNode extends Node {
      *
      * @param r The new right child node of the node.
      */
-    public void rightTo(RedBlackTreeNode r)
-    {
+    public void rightTo(RedBlackTreeNode r) {
         this.right = r;
     }
 
@@ -217,8 +216,7 @@ public class RedBlackTreeNode extends Node {
      *
      * @param l The new left child node of the node.
      */
-    public void leftTo(RedBlackTreeNode l)
-    {
+    public void leftTo(RedBlackTreeNode l) {
         this.left = l;
     }
 

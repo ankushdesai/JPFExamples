@@ -1,14 +1,16 @@
-package benchmarks.rbt;
+package rbt;
 
 /**
  * 
- * A <code>Node</code> object is a node of search tree
- * including key data and satellite object.
+ * A <code>Node</code> object is a node of search tree including key data and
+ * satellite object.
  * <p/>
- * It can be used with binary search tree as well as with
- * red black tree or with any other search tree.
+ * It can be used with binary search tree as well as with red black tree or with
+ * any other search tree.
  *
- * Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/rbt/Node.java
+ * Credit:
+ * https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/rbt/Node.java
+ * 
  * @author Tuomo Saarni
  * @version 1.2, 08/16/01
  */
@@ -28,7 +30,7 @@ public class Node {
      * @see #object()
      * @see #objectTo
      */
-    protected Object data;                // Refers to the satellite data
+    protected Object data; // Refers to the satellite data
 
     /**
      * Constructs a new node. The satellite data is set to <code>null>/code>.
@@ -92,9 +94,8 @@ public class Node {
      *
      * @param o The new data of the node.
      */
-	public void objectTo(Object o)
-	{
-		this.data = o;
-	}
+    public void objectTo(Object o) {
+        this.data = o;
+    }
 
 } // End class Node

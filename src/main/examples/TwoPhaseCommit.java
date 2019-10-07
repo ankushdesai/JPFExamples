@@ -1,5 +1,3 @@
-package examples;
-
 /*
 
 @author Ankush Desai

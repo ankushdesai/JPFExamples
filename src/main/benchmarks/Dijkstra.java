@@ -1,5 +1,3 @@
-package benchmarks;
-
 /**
  * Credit:
  * https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/Dijkstra.java

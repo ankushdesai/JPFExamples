@@ -1,4 +1,3 @@
-import examples.*;
 /*
 * @author Yifan Ning
 */
@@ -11,7 +10,7 @@ public class ConcurrentListTest extends TestJPF {
 
     @Test
     public void testAddFirst() {
-        if (verifyNoPropertyViolation("src/test/examples/examplesTest.jpf")) {
+        if (verifyNoPropertyViolation("src/test/junit/examples/examplesTest.jpf")) {
             ConcurrentList<Integer> myList = new ConcurrentList<>();
             myList.addFirst(6);
             myList.addFirst(5);
@@ -50,7 +49,7 @@ public class ConcurrentListTest extends TestJPF {
 
     @Test
     public void testRemoveFirst() {
-        if (verifyNoPropertyViolation("src/test/examples/examplesTest.jpf")) {
+        if (verifyNoPropertyViolation("src/test/junit/examples/examplesTest.jpf")) {
             ConcurrentList<Integer> myList = new ConcurrentList<>();
             myList.addFirst(6);
             myList.addFirst(5);
@@ -90,7 +89,7 @@ public class ConcurrentListTest extends TestJPF {
     // This is the test that's supposed to fail
     @Test
     public void testRemoveFirstUnsafe() {
-        if (verifyNoPropertyViolation("src/test/examples/examplesTest.jpf")) {
+        if (verifyNoPropertyViolation("src/test/junit/examples/examplesTest.jpf")) {
             ConcurrentList<Integer> myList = new ConcurrentList<>();
             myList.addFirst(6);
             myList.addFirst(5);
