@@ -1,13 +1,13 @@
 <project name="JPFExamples" basedir = ".">
 
     <property name="main.build.dir" value="build/main"/>
-    <property name="main.src.dir" value="src/main/java"/>
+    <property name="main.src.dir" value="src/main"/>
     <property name="test.build.dir" value="build/test"/>
-    <property name="test.src.dir" value="src/test/java"/>
+    <property name="test.src.dir" value="src/test"/>
 
     <path id="classpath.test">
-        <pathelement location="/usr/local/apache-ant-1.9.14/lib/junit-4.13-beta-3.jar"/>
-        <pathelement location="/usr/local/apache-ant-1.9.14/lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="/Users/nyfkxj/ucb_archive/p_org/jpf/apache-ant-1.10.6/lib/junit-4.12.jar"/>
+        <pathelement location="/Users/nyfkxj/ucb_archive/p_org/jpf/apache-ant-1.10.6/lib/hamcrest-core-1.3.jar"/>
         <pathelement location="../jpf-core/build/RunTest.jar"/>
         <pathelement location="../jpf-core/build/jpf.jar"/>
         <pathelement location="${main.build.dir}"/>
@@ -19,22 +19,12 @@
         <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false"/>
     </target>
 
-    <target name="test-compile" depends="compile">
-        <mkdir dir="${test.build.dir}"/>
-        <javac srcdir="${test.src.dir}" destdir="${test.build.dir}"
-               includeantruntime="false">
-            <compilerarg value="-cp"/>
-            <compilerarg path="build/main/:../jpf-core/build/RunTest.jar:../jpf-core/build/jpf.jar"/>
-        </javac>
-    </target>
-
-
     <target name="benchmark" depends="compile">
         <delete file="reports/benchmark.txt"/>
 
         <echo message="================================================================= Binary Search with 1000 insertions and 1000 search"/>
         <java dir="." jar="../jpf-core/build/RunJPF.jar" fork="true" maxmemory="4096m">
-            <arg line=" ${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
+            <arg line=" -show ${main.src.dir}/benchmarks/BinarySearchTree.jpf 1000"/>
             <redirector output="reports/benchmark.txt" alwayslog="true" append = "true"/> 
         </java>
         <echo message="${line.separator}${line.separator}${line.separator}${line.separator}"/>
@@ -141,6 +131,16 @@
             <arg line="-jar ../jpf-core/build/RunJPF.jar"/> 
             <fileset dir="${main.src.dir}/examples" includes="*.jpf"/> 
         </apply> 
+    </target>
+
+<!-- ****************** Starting junit tests ************************* -->
+    <target name="test-compile" depends="compile">
+        <mkdir dir="${test.build.dir}"/>
+        <javac srcdir="${test.src.dir}" destdir="${test.build.dir}"
+               includeantruntime="false">
+            <compilerarg value="-cp"/>
+            <compilerarg path="build/main/:../jpf-core/build/RunTest.jar:../jpf-core/build/jpf.jar"/>
+        </javac>
     </target>
 
     <target name="junit-test" depends="test-compile">

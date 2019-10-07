@@ -1,3 +1,4 @@
+package benchmarks;
 
 // Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/BinaryTreeSearch.java
 import java.util.Random;

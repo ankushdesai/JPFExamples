@@ -1,4 +1,5 @@
 // Credit: https://github.com/isstac/canopy/blob/master/src/examples/sampling/batch/BellmanFord.java
+package benchmarks;
 
 /**
  * @author Sudeep Juvekar <sjuvekar@cs.berkeley.edu>
