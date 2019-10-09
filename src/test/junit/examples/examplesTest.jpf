@@ -1,1 +1,4 @@
-classpath = build/main/;build/test/
+@using = jpf-progress
+classpath = build/main/;\
+            build/test/
+listener = gov.nasa.jpf.listener.PathCountEstimator
